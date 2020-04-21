@@ -1,6 +1,24 @@
 import React, {Component} from 'react';
+import axios from "axios";
 
 class Item extends Component {
+
+
+    deleteItem()
+    {
+       // console.log('this',this.props)
+
+        axios.put(process.env.REACT_APP_CART+localStorage.getItem('userId'),{
+            pizza_id: this.props.pizza.pizza_id,
+            count: 0
+        })
+            .then(response => {
+                window.location.href = "/cart";
+            });
+
+    }
+
+
     render() {
         let pizza = this.props.pizza;
         return (
@@ -14,6 +32,9 @@ class Item extends Component {
 
                 </td>
                 <td>${(pizza.count * pizza.cost).toFixed(2)} / {(pizza.count * pizza.cost * 1.1).toFixed(2)} €</td>
+                <td>
+                    <button className="btn btn-outline-danger" onClick={this.deleteItem.bind(this)}>Delete</button>
+                </td>
             </tr>
         );
     }

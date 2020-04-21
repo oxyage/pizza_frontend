@@ -42,8 +42,9 @@ class ItemList extends Component {
 
     getOrder()
     {
-        let delivery = document.getElementById('infoDelivery').value || " ";
-        let contacts = document.getElementById('infoContacts').value || " ";
+
+        let delivery = document.getElementById('infoDelivery').value || "undefined";
+        let contacts = document.getElementById('infoContacts').value || "undefined";
 
 
         axios.post(process.env.REACT_APP_ORDER+localStorage.getItem('userId'),{
@@ -51,9 +52,11 @@ class ItemList extends Component {
         })
         .then(response => {
             window.location.href = "/orders";
+
         })
             .catch(err =>{
                 window.location.href = "/";
+                console.error(err)
             });
 
 
@@ -89,6 +92,7 @@ class ItemList extends Component {
                         <th scope="col">Cost</th>
                         <th scope="col">Count</th>
                         <th scope="col">Total</th>
+                        <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -106,14 +110,19 @@ class ItemList extends Component {
                             { this.props.list.reduce(function(prev, curr){ return prev+curr.count;}, 0)}
                         <small>({this.props.summary.weight.toFixed(2)} kg)</small>
                         </td>
-                        <td>${this.props.summary.cost.toFixed(2)} / {(this.props.summary.cost*1.1).toFixed(2)} €</td>
+                        <td>
+                            ${this.props.summary.cost.toFixed(2)} / {(this.props.summary.cost*1.1).toFixed(2)} €
+                        </td>
+                        <td>
+                            <button type="button" className="btn btn-outline-warning" onClick={this.clearCart}>Clear cart</button>
+                        </td>
                     </tr>
 
                     </tbody>
 
                 </table>
 
-                <button type="button" className="btn btn-outline-warning" onClick={this.clearCart}>Clear Cart</button>
+
 
                 <hr/>
 

@@ -11,7 +11,8 @@ class Cart extends Component {
         this.state = {
 
             cart: [],
-            cart_summary: []
+            cart_summary: [],
+            cartEmpty: true
 
         };
 
@@ -27,7 +28,9 @@ class Cart extends Component {
                 this.setState({
                     cart: response.data['customer_cart'],
                     cart_summary: response.data.summary,
-                    cartLoaded: true
+                    cartLoaded: true,
+                    cartEmpty: response.data['customer_cart'].length > 0 ? false : true
+
                 });
             });
 
@@ -52,7 +55,13 @@ class Cart extends Component {
                 }
 
                 {
-                    this.state.cartLoaded   && <ItemList list={this.state.cart} summary={this.state.cart_summary}/>
+                    this.state.cartLoaded && !this.state.cartEmpty  && <ItemList list={this.state.cart} summary={this.state.cart_summary}/>
+                }
+
+                {
+                    this.state.cartLoaded && this.state.cartEmpty && <div className="alert alert-primary" role="alert">
+                        Your cart is empty! Please, add any pizza to cart
+                    </div>
                 }
 
             </div>
