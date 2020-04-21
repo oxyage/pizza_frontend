@@ -19,7 +19,7 @@ class Orders extends Component {
 
     getOrdersFromServer() {
 
-        axios.get("https://agile-reaches-90236.herokuapp.com/api/orders/"+localStorage.getItem('userId')).then(response => {
+        axios.get(process.env.REACT_APP_GET_ORDERS+localStorage.getItem('userId')).then(response => {
             this.setState({
                 orders: response.data,
                 ordersLoaded: true

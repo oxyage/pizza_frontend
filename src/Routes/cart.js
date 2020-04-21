@@ -22,7 +22,7 @@ class Cart extends Component {
 
     getCartFromServer() {
 
-        axios.get("https://agile-reaches-90236.herokuapp.com/api/cart/"+localStorage.getItem('userId'))
+        axios.get(process.env.REACT_APP_CART+localStorage.getItem('userId'))
             .then(response => {
                 this.setState({
                     cart: response.data['customer_cart'],

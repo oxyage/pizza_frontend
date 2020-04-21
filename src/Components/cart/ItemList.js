@@ -45,7 +45,8 @@ class ItemList extends Component {
         let delivery = document.getElementById('infoDelivery').value || " ";
         let contacts = document.getElementById('infoContacts').value || " ";
 
-        axios.post("https://agile-reaches-90236.herokuapp.com/api/order/"+localStorage.getItem('userId'),{
+
+        axios.post(process.env.REACT_APP_ORDER+localStorage.getItem('userId'),{
             delivery, contacts
         })
         .then(response => {
@@ -64,7 +65,7 @@ class ItemList extends Component {
         if(window.confirm("Are you sure?"))
         {
 
-            axios.delete("https://agile-reaches-90236.herokuapp.com/api/cart/"+localStorage.getItem('userId'),{})
+            axios.delete(process.env.REACT_APP_CART+localStorage.getItem('userId'),{})
                 .then(response => {
                     window.location.href = "/";
                 });

@@ -27,7 +27,7 @@ class Home extends Component {
 
     getPizzasFromServer() {
 
-        axios.get("https://agile-reaches-90236.herokuapp.com/api/pizzas").then(response => {
+        axios.get(process.env.REACT_APP_GET_PIZZAS).then(response => {
             this.setState({
                 pizzas: response.data,
                 pizzaLoaded: true
