@@ -50,7 +50,7 @@ class Orders extends Component {
                     this.state.ordersLoaded && <table className="table table-hover">
                         <thead>
                         <tr>
-
+                            <th scope="col">#</th>
                             <th scope="col">Order</th>
                             <th scope="col">Cost</th>
                             <th scope="col">Delivery</th>
@@ -66,7 +66,7 @@ class Orders extends Component {
                             this.state.orders.map(item =>{
 
                                 return <tr key={item.id}>
-
+                                    <th scope="col">{item.id}</th>
                                     <td>
                                         <ul>
 
