@@ -56,7 +56,7 @@ class App extends Component{
     }
 render() {
     return (
-        <div className="App">
+        <div className="container" style={{margin:"0 auto"}}>
 
 
             <Header auth={this.state.auth}/>
