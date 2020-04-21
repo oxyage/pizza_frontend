@@ -7,7 +7,7 @@ Here is only frontend
 Copy or download this reposithory
  
 Fix configuration environment in file `.env`. 
-Set here url from API
+Set here url from API 
     
     /* backend url for get all pizzas */
     REACT_APP_GET_PIZZAS=https://agile-reaches-90236.herokuapp.com/api/pizzas
