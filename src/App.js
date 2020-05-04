@@ -7,6 +7,7 @@ import Orders from "./Routes/orders";
 import './App.css';
 import {  BrowserRouter as Router,Route, Switch} from "react-router-dom";
 import Header from "./Components/Header";
+import axios from "axios";
 
 class App extends Component{
 
@@ -26,10 +27,6 @@ class App extends Component{
             totalAmount: 0,
         };
 
-
-
-
-
     }
 
     componentWillMount()
@@ -38,10 +35,21 @@ class App extends Component{
         if(!localStorage.getItem('userId'))
         {
 
-            //todo: register user on database
-
             let userId = Math.ceil(Math.random() * 100000);
             localStorage.setItem('userId', userId);
+
+            axios.post(process.env.REACT_APP_CUSTOMER,
+            {
+                name: userId
+
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.warn(error);
+            });
+
             this.setState({
                 userId: userId
             });

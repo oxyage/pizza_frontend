@@ -20,7 +20,7 @@ class Pizza extends Component {
             pizza: pizza.pizza_id
         });
 
-        axios.post('https://agile-reaches-90236.herokuapp.com/api/cart/'+this.userId,
+        axios.post(process.env.REACT_APP_CART+this.userId,
             {
                 pizza_id: pizza.pizza_id,
                 count: 1
