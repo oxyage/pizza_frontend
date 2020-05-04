@@ -28,10 +28,10 @@ class Item extends Component {
                 <td>{pizza.title} <small>({pizza.weight*1000}g)</small></td>
                 <td>${pizza.cost.toFixed(2)}</td>
                 <td>
-
+                    <button type="button" className="btn btn-light btn-sm mx-2">-</button>
 
                     {pizza.count}
-
+                    <button type="button" className="btn btn-light btn-sm mx-2">+</button>
 
                 </td>
                 <td>${(pizza.count * pizza.cost).toFixed(2)} / {(pizza.count * pizza.cost * 1.1).toFixed(2)} €</td>
