@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
 
 class Item extends Component {
 
@@ -28,7 +29,9 @@ class Item extends Component {
                 <td>${pizza.cost.toFixed(2)}</td>
                 <td>
 
+
                     {pizza.count}
+
 
                 </td>
                 <td>${(pizza.count * pizza.cost).toFixed(2)} / {(pizza.count * pizza.cost * 1.1).toFixed(2)} €</td>
