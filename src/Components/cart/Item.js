@@ -27,16 +27,6 @@ class Item extends Component {
 
         this.updateItem(0);
 
-        return true;
-
-        axios.put(process.env.REACT_APP_CART+localStorage.getItem('userId'),{
-            pizza_id: this.props.pizza.pizza_id,
-            count: 0
-        })
-            .then(response => {
-                window.location.href = "/cart";
-            });
-
     }
 
     decrementItem()
@@ -67,6 +57,14 @@ class Item extends Component {
             let newPizza = this.props.pizza;
             newPizza.count = 0;
             this.props.dispatch(newPizza, this.props.index);
+            axios.put(process.env.REACT_APP_CART+localStorage.getItem('userId'),{
+                pizza_id: this.props.pizza.pizza_id,
+                count: 0
+            })
+                .then(response => {
+                    console.log(response)
+                });
+
             return true;
         }
 
@@ -89,10 +87,17 @@ class Item extends Component {
             newPizza.count = newCount;
            this.props.dispatch(newPizza, this.props.index);
 
+            axios.put(process.env.REACT_APP_CART+localStorage.getItem('userId'),{
+                pizza_id: this.props.pizza.pizza_id,
+                count: newCount
+            })
+            .then(response => {
+                console.log(response)
+            });
+
         }
 
 
-      //  this.props.dispatch();
     }
 
 
