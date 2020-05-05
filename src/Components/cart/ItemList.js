@@ -79,6 +79,11 @@ class ItemList extends Component {
 
     }
 
+    getProps()
+    {
+        console.log(this.props);
+    }
+
 
     render() {
 
@@ -100,7 +105,7 @@ class ItemList extends Component {
                     {
 
                        this.props.list.map((pizza, index) => {
-                        return <Item key={pizza.pizza_id} pizza={pizza} index={index}/> })
+                        return <Item key={pizza.pizza_id} pizza={pizza} index={index} dispatch={this.props.dispatch}/> })
                     }
 
 
@@ -115,6 +120,7 @@ class ItemList extends Component {
                         </td>
                         <td>
                             <button type="button" className="btn btn-outline-warning" onClick={this.clearCart}>Clear cart</button>
+                            <button type="button" className="btn btn-outline-info" onClick={this.getProps.bind(this)}>Props</button>
                         </td>
                     </tr>
 
