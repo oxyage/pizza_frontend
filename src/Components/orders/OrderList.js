@@ -20,7 +20,7 @@ function OrderList(props){
     {
         list.map(item =>{
 
-         return <Order pizza={item}/>;
+         return <Order key={item.id} pizza={item}/>;
 
         })
     }
