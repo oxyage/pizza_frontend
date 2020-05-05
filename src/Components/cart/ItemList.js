@@ -79,12 +79,6 @@ class ItemList extends Component {
 
     }
 
-    getProps()
-    {
-        console.log(this.props);
-    }
-
-
     render() {
 
         return (
