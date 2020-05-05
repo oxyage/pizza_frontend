@@ -1,4 +1,4 @@
-#The Pizza Task
+# The Pizza Task
 
 Here is only frontend
 
@@ -20,6 +20,9 @@ Set here url from API
     
     /* backend url for get order from cart */
     REACT_APP_ORDER=https://agile-reaches-90236.herokuapp.com/api/order/
+    
+    /* backend url for create customer*/
+    REACT_APP_CUSTOMER=https://agile-reaches-90236.herokuapp.com/api/customer
 
 ## Run    
 
