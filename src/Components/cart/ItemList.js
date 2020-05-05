@@ -120,7 +120,6 @@ class ItemList extends Component {
                         </td>
                         <td>
                             <button type="button" className="btn btn-outline-warning" onClick={this.clearCart}>Clear cart</button>
-                            <button type="button" className="btn btn-outline-info" onClick={this.getProps.bind(this)}>Props</button>
                         </td>
                     </tr>
 
